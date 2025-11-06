@@ -59,7 +59,8 @@
             android:src="@drawable/img_btn_facilities"
             android:scaleType="fitCenter"
             android:background="@drawable/button_selector" 
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            android:onClick="onButtonClick"/>
 
     
         <ImageButton
@@ -71,7 +72,8 @@
             android:src="@drawable/img_btn_events"
             android:scaleType="fitCenter"
             android:background="@drawable/button_selector"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            android:onClick="onButtonClick"/>
 
     
         <ImageButton
@@ -83,7 +85,8 @@
             android:src="@drawable/img_btn_clubs"
             android:scaleType="fitCenter"
             android:background="@drawable/button_selector"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            android:onClick="onButtonClick"/>
 
       
         <ImageButton
@@ -95,7 +98,8 @@
             android:src="@drawable/img_btn_support"
             android:scaleType="fitCenter"
             android:background="@drawable/button_selector"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            android:onClick="onButtonClick"/>
 
     </GridLayout>
 

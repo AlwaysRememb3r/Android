@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CampusLife</string> <!-- 原默认名称改为CampusLife -->
+    <string name="tv_title">Welcome to\nUniversity of Waikato CampusLife</string>
+</resources>

@@ -55,5 +55,48 @@
             android:lineSpacingExtra="8dp"/>
 
     </ScrollView>
+package com.waikato.campuslife;
 
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class DetailActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_detail);
+
+      
+        int sectionIndex = getIntent().getIntExtra("SECTION_INDEX", 0); 
+
+      
+        String[] titles = getResources().getStringArray(R.array.string_array_titles);
+        String[] contents = getResources().getStringArray(R.array.string_array_content);
+        String[] imageNames = getResources().getStringArray(R.array.string_array_images);
+
+      
+        String title = titles[sectionIndex];
+        String content = contents[sectionIndex];
+        String imageName = imageNames[sectionIndex];
+
+     
+        int imageResId = getResources().getIdentifier(
+            imageName, 
+            "drawable", 
+            getPackageName()
+        );
+
+     
+        TextView tvTitle = findViewById(R.id.tv_detail_title);
+        TextView tvContent = findViewById(R.id.tv_detail_content);
+        ImageView ivImage = findViewById(R.id.iv_detail_image);
+
+        tvTitle.setText(title);
+        tvContent.setText(content);
+        ivImage.setImageResource(imageResId);
+    }
+}
 </androidx.constraintlayout.widget.ConstraintLayout>

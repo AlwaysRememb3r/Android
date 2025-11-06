@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout 
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,29 +11,31 @@
     <ImageView
         android:id="@+id/iv_banner"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop" 
         android:src="@drawable/img_main_banner"
-        android:scaleType="centerCrop"
+        android:contentDescription="Campus banner" 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.3"/> 
-
-  
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to\nUniversity of Waikato CampusLife"
-        android:textSize="40sp" 
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/iv_banner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintHeight_percent="0.3"/>
 
    
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_title"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:gravity="center" 
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp" 
+        app:layout_constraintTop_toBottomOf="@id/iv_banner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+  
     <GridLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -41,65 +43,68 @@
         android:rowCount="2"
         android:alignmentMode="alignMargins"
         android:columnOrderPreserved="false"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.0"> 
 
-       
+        
         <ImageButton
             android:id="@+id/btn_facilities"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp" 
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
+            android:layout_margin="8dp"
             android:src="@drawable/img_btn_facilities"
-            android:scaleType="fitCenter"
-            android:background="@drawable/button_selector" 
-            android:layout_margin="16dp"
-            android:onClick="onButtonClick"/>
-
-    
-        <ImageButton
-            android:id="@+id/btn_events"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:src="@drawable/img_btn_events"
-            android:scaleType="fitCenter"
-            android:background="@drawable/button_selector"
-            android:layout_margin="16dp"
-            android:onClick="onButtonClick"/>
-
-    
-        <ImageButton
-            android:id="@+id/btn_clubs"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:src="@drawable/img_btn_clubs"
-            android:scaleType="fitCenter"
-            android:background="@drawable/button_selector"
-            android:layout_margin="16dp"
-            android:onClick="onButtonClick"/>
+            android:scaleType="fitInside" 
+            android:backgroundTint="@drawable/button_selector"
+            android:onClick="onButtonClick"
+            android:contentDescription="Facilities"/>
 
       
         <ImageButton
-            android:id="@+id/btn_support"
+            android:id="@+id/btn_events"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:src="@drawable/img_btn_events"
+            android:scaleType="fitInside"
+            android:backgroundTint="@drawable/button_selector"
+            android:onClick="onButtonClick"
+            android:contentDescription="Events"/>
+
+       
+        <ImageButton
+            android:id="@+id/btn_clubs"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:src="@drawable/img_btn_clubs"
+            android:scaleType="fitInside"
+            android:backgroundTint="@drawable/button_selector"
+            android:onClick="onButtonClick"
+            android:contentDescription="Clubs"/>
+
+       
+        <ImageButton
+            android:id="@+id/btn_support"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
             android:src="@drawable/img_btn_support"
-            android:scaleType="fitCenter"
-            android:background="@drawable/button_selector"
-            android:layout_margin="16dp"
-            android:onClick="onButtonClick"/>
+            android:scaleType="fitInside"
+            android:backgroundTint="@drawable/button_selector"
+            android:onClick="onButtonClick"
+            android:contentDescription="Support"/>
 
     </GridLayout>
 

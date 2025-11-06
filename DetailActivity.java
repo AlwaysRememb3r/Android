@@ -1,73 +1,53 @@
-package com.waikato.campuslife;
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+    <ImageView
+        android:id="@+id/iv_detail_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp" 
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        tools:src="@drawable/img_btn_facilities"/>
 
-public class DetailActivity extends AppCompatActivity {
+    <TextView
+        android:id="@+id/tv_detail_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/iv_detail_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Title"/>
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="24dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        try {
-           
-            int sectionIndex = getIntent().getIntExtra("SECTION_INDEX", 0);
-            if (sectionIndex < 0 || sectionIndex > 3) {
-                sectionIndex = 0;
-                showToast("Loading default section");
-            }
+        <TextView
+            android:id="@+id/tv_detail_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="8dp"
+            tools:text="Content..."/>
 
-          
-            String[] titles = getResources().getStringArray(R.array.string_array_titles);
-            String[] contents = getResources().getStringArray(R.array.string_array_content);
-            String[] imageNames = getResources().getStringArray(R.array.string_array_images);
+    </ScrollView>
 
-            if (titles.length != 4 || contents.length != 4 || imageNames.length != 4) {
-                throw new Exception("Arrays must have exactly 4 items");
-            }
-
-           
-            String title = titles[sectionIndex].trim();
-            String content = contents[sectionIndex].trim();
-            String imageName = imageNames[sectionIndex].trim();
-
-          
-            int imageResId = getResources().getIdentifier(
-                imageName, "drawable", getPackageName()
-            );
-            if (imageResId == 0) {
-               
-                throw new Exception("Image not found: " + imageName);
-            }
-
-          
-            TextView tvTitle = findViewById(R.id.tv_detail_title);
-            TextView tvContent = findViewById(R.id.tv_detail_content);
-            ImageView ivImage = findViewById(R.id.iv_detail_image);
-
-            if (tvTitle == null || tvContent == null || ivImage == null) {
-                throw new Exception("UI elements not found in layout");
-            }
-
-            tvTitle.setText(title);
-            tvContent.setText(content);
-            tvContent.setLineSpacing(16, 1.1f); 
-            ivImage.setImageResource(imageResId);
-
-        } catch (Exception e) {
-          
-            showToast("Error: " + e.getMessage());
-            e.printStackTrace();
-            finish();
-        }
-    }
-
-
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-    }
-}
+</androidx.constraintlayout.widget.ConstraintLayout>

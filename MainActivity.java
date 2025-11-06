@@ -14,22 +14,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     
-    public void onButtonClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_facilities:
-                Toast.makeText(this, "Facilities clicked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_events:
-                Toast.makeText(this, "Events clicked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_clubs:
-                Toast.makeText(this, "Clubs clicked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_support:
-                Toast.makeText(this, "Support clicked", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                break;
-        }
+   public void onButtonClick(View view) {
+    Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+   
+    switch (view.getId()) {
+        case R.id.btn_facilities:
+            intent.putExtra("SECTION_INDEX", 0);
+            break;
+        case R.id.btn_events:
+            intent.putExtra("SECTION_INDEX", 1);
+            break;
+        case R.id.btn_clubs:
+            intent.putExtra("SECTION_INDEX", 2);
+            break;
+        case R.id.btn_support:
+            intent.putExtra("SECTION_INDEX", 3);
+            break;
+        default:
+            break;
     }
+    startActivity(intent); // 启动DetailActivity
+}
 }

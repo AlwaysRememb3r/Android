@@ -1,11 +1,14 @@
 package com.waikato.campuslife;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private boolean isClickable = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,26 +16,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    
-   public void onButtonClick(View view) {
-    Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-   
-    switch (view.getId()) {
-        case R.id.btn_facilities:
-            intent.putExtra("SECTION_INDEX", 0);
-            break;
-        case R.id.btn_events:
-            intent.putExtra("SECTION_INDEX", 1);
-            break;
-        case R.id.btn_clubs:
-            intent.putExtra("SECTION_INDEX", 2);
-            break;
-        case R.id.btn_support:
-            intent.putExtra("SECTION_INDEX", 3);
-            break;
-        default:
-            break;
+
+    public void onButtonClick(View view) {
+        if (!isClickable) return;
+        isClickable = false;
+
+        Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+        int sectionIndex = 0;
+
+
+        if (view.getId() == R.id.btn_facilities) {
+            sectionIndex = 0;
+            Toast.makeText(this, "Facilities", Toast.LENGTH_SHORT).show();
+        } else if (view.getId() == R.id.btn_events) {
+            sectionIndex = 1;
+            Toast.makeText(this, "Events", Toast.LENGTH_SHORT).show();
+        } else if (view.getId() == R.id.btn_clubs) {
+            sectionIndex = 2;
+            Toast.makeText(this, "Clubs", Toast.LENGTH_SHORT).show();
+        } else if (view.getId() == R.id.btn_support) {
+            sectionIndex = 3;
+            Toast.makeText(this, "Support", Toast.LENGTH_SHORT).show();
+        }
+
+        intent.putExtra("SECTION_INDEX", sectionIndex);
+        startActivity(intent);
+
+
+        view.postDelayed(() -> isClickable = true, 500);
     }
-    startActivity(intent); // 启动DetailActivity
-}
 }

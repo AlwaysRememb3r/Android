@@ -66,7 +66,6 @@ public class DetailActivity extends AppCompatActivity {
         }
     }
 
-
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }

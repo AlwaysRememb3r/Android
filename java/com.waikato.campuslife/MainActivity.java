@@ -45,4 +45,4 @@ public class MainActivity extends AppCompatActivity {
 
         view.postDelayed(() -> isClickable = true, 500);
     }
-}
+} 

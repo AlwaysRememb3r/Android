@@ -1,0 +1,97 @@
+package Model;
+import android.os.CountDownTimer;
+import android.os.Handler;
+import android.widget.ImageView;
+
+import java.util.Random;
+
+import Activities.GameActivity; 
+
+public class GameLogic {
+    public static final long MOLE_DISPLAY_TIME = 1000;
+    public static final long GAME_DURATION = 30000;
+
+    private int currentScore;
+    private int remainingTime;
+    private boolean isGameRunning;
+    private Mole[] moles;
+    private Random random;
+    private Handler moleHandler;
+    private Runnable moleRunnable;
+    private GameActivity gameActivity;
+
+    public GameLogic(ImageView[] imageViews, GameActivity activity) {
+        this.gameActivity = activity;
+        this.currentScore = 0;
+        this.remainingTime = (int) (GAME_DURATION / 1000);
+        this.isGameRunning = false;
+        this.random = new Random();
+        this.moleHandler = new Handler();
+
+        moles = new Mole[9];
+        for (int i = 0; i < 9; i++) {
+            moles[i] = new Mole(i + 1, imageViews[i]);
+        }
+
+        initMoleRunnable();
+    }
+
+    private void initMoleRunnable() {
+        moleRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (isGameRunning) {
+                    hideAllMoles();
+                    int randomIndex = random.nextInt(9);
+                    moles[randomIndex].setVisible(true);
+                    moleHandler.postDelayed(this, MOLE_DISPLAY_TIME);
+                }
+            }
+        };
+    }
+
+    public void startGame() {
+        isGameRunning = true;
+        moleHandler.post(moleRunnable);
+        startCountdown();
+    }
+
+    private void startCountdown() {
+        new CountDownTimer(GAME_DURATION, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                remainingTime = (int) (millisUntilFinished / 1000);
+                gameActivity.updateTimer(remainingTime);
+            }
+
+            @Override
+            public void onFinish() {
+                isGameRunning = false;
+                moleHandler.removeCallbacks(moleRunnable);
+                gameActivity.gameOver(currentScore);
+            }
+        }.start();
+    }
+
+    public void onMoleClick(int moleIndex) {
+        if (isGameRunning) {
+            int index = moleIndex - 1;
+            if (moles[index].isVisible()) {
+                currentScore++;
+                moles[index].setVisible(false);
+                gameActivity.updateScore(currentScore);
+            }
+        }
+    }
+
+    private void hideAllMoles() {
+        for (Mole mole : moles) {
+            mole.setVisible(false);
+        }
+    }
+
+    public Mole[] getMoles() { return moles; }
+    public Handler getMoleHandler() { return moleHandler; }
+    public Runnable getMoleRunnable() { return moleRunnable; }
+    public boolean isGameRunning() { return isGameRunning; }
+}

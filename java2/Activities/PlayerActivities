@@ -1,0 +1,63 @@
+package Activities;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import Model.Leaderboard;
+import com.waikato.whackamole.R; 
+
+public class PlayerActivity extends AppCompatActivity {
+
+    private EditText etPlayerName;
+    private RadioGroup rgAvatar;
+    private TextView tvPlayerScore;
+    private int finalScore;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_player);
+
+        finalScore = getIntent().getIntExtra("finalScore", 0);
+        initViews();
+    }
+
+    private void initViews() {
+        etPlayerName = findViewById(R.id.et_playername);
+        rgAvatar = findViewById(R.id.rg_avator);
+        tvPlayerScore = findViewById(R.id.tv_playerscore);
+        tvPlayerScore.setText("Score: " + finalScore);
+    }
+
+    public void onClickSubmit(View view) {
+        String playerName = etPlayerName.getText().toString().trim();
+        if (playerName.isEmpty()) {
+            Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Drawable avatar = getSelectedAvatar();
+        Leaderboard.getInstance().addPlayer(playerName, finalScore, avatar);
+
+        startActivity(new Intent(this, LeaderboardActivity.class));
+        finish();
+    }
+
+    private Drawable getSelectedAvatar() {
+        int selectedId = rgAvatar.getCheckedRadioButtonId();
+        switch (selectedId) {
+            case R.id.rb_blue: return getResources().getDrawable(R.drawable.avatar_blue);
+            case R.id.rb_orange: return getResources().getDrawable(R.drawable.avatar_orange);
+            case R.id.rb_green: return getResources().getDrawable(R.drawable.avatar_green);
+            case R.id.rb_purple: return getResources().getDrawable(R.drawable.avatar_purple);
+            case R.id.rb_pink: return getResources().getDrawable(R.drawable.avatar_pink);
+            default: return getResources().getDrawable(R.drawable.avatar_grey);
+        }
+    }
+}

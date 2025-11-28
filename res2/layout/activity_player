@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    android:background="@android:color/white">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_playerscore"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Score: 0"
+    android:textSize="28sp"
+    android:textStyle="bold"
+    android:layout_marginBottom="32dp"/>
+
+
+    <EditText
+        android:id="@+id/et_playername"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Enter your name"
+    android:inputType="textCapWords"
+    android:textSize="18sp"
+    android:layout_marginBottom="32dp"/>
+
+
+    <RadioGroup
+        android:id="@+id/rg_avator"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="32dp">
+
+    <RadioButton
+        android:id="@+id/rb_blue"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Blue Avatar"
+    android:textSize="18sp"
+    android:checked="true"/>
+
+    <RadioButton
+        android:id="@+id/rb_orange"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Orange Avatar"
+    android:textSize="18sp"/>
+
+    <RadioButton
+        android:id="@+id/rb_green"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Green Avatar"
+    android:textSize="18sp"/>
+
+    <RadioButton
+        android:id="@+id/rb_purple"  
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Purple Avatar"
+    android:textSize="18sp"/>
+
+    <RadioButton
+        android:id="@+id/rb_pink"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Pink Avatar"
+    android:textSize="18sp"/>
+
+</RadioGroup>
+
+
+<Button
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Submit Score"
+android:textSize="20sp"
+android:onClick="onClickSubmit"
+android:backgroundTint="@color/purple_500"
+android:textColor="@android:color/white"/>
+
+    </LinearLayout>

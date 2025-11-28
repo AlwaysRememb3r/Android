@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:src="@drawable/img_wakamole_text"
+        android:scaleType="centerInside"/>
+
+
+    <ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="20dp">
+
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/play_game"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:onClick="onClickPlay"
+            android:layout_constraintTop_toParentTop="true"
+            android:layout_constraintBottom_toCenterOfParent="true"/>
+
+
+        <Button
+            android:id="@+id/btn_leaderboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/leaderboard"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:onClick="onClickLeaderboard"
+            android:layout_constraintTop_toCenterOfParent="true"
+            android:layout_constraintBottom_toParentBottom="true"/>
+    </ConstraintLayout>
+</LinearLayout>

@@ -11,37 +11,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:justifyContent="space-between"
-        android:marginBottom="16dp">
-
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp"> 
 
         <TextView
             android:id="@+id/tv_timer_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Time: 30"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time: 30"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginRight="20dp"/> 
 
-
+      
         <TextView
             android:id="@+id/tv_score_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Score: 0"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score: 0"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
     </LinearLayout>
 
-
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:spacing="8dp">
 
-
+       
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -52,33 +54,33 @@
 
             <ImageView
                 android:id="@+id/iv_without_mole_01"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/img_without_mole"
-            android:scaleType="centerInside"
-            android:onClick="onMoleClick"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/img_without_mole"
+                android:scaleType="centerInside"
+                android:onClick="onMoleClick"/>
 
             <ImageView
                 android:id="@+id/iv_without_mole_02"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/img_without_mole"
-            android:scaleType="centerInside"
-            android:onClick="onMoleClick"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/img_without_mole"
+                android:scaleType="centerInside"
+                android:onClick="onMoleClick"/>
 
             <ImageView
                 android:id="@+id/iv_without_mole_03"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/img_without_mole"
-            android:scaleType="centerInside"
-            android:onClick="onMoleClick"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/img_without_mole"
+                android:scaleType="centerInside"
+                android:onClick="onMoleClick"/>
         </LinearLayout>
 
-
+       
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -89,33 +91,33 @@
 
             <ImageView
                 android:id="@+id/iv_without_mole_04"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/img_without_mole"
-            android:scaleType="centerInside"
-            android:onClick="onMoleClick"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/img_without_mole"
+                android:scaleType="centerInside"
+                android:onClick="onMoleClick"/>
 
             <ImageView
                 android:id="@+id/iv_without_mole_05"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/img_without_mole"
-            android:scaleType="centerInside"
-            android:onClick="onMoleClick"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/img_without_mole"
+                android:scaleType="centerInside"
+                android:onClick="onMoleClick"/>
 
             <ImageView
                 android:id="@+id/iv_without_mole_06"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/img_without_mole"
-            android:scaleType="centerInside"
-            android:onClick="onMoleClick"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/img_without_mole"
+                android:scaleType="centerInside"
+                android:onClick="onMoleClick"/>
         </LinearLayout>
 
-
+       
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -126,30 +128,30 @@
 
             <ImageView
                 android:id="@+id/iv_without_mole_07"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/img_without_mole"
-            android:scaleType="centerInside"
-            android:onClick="onMoleClick"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/img_without_mole"
+                android:scaleType="centerInside"
+                android:onClick="onMoleClick"/>
 
             <ImageView
                 android:id="@+id/iv_without_mole_08"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/img_without_mole"
-            android:scaleType="centerInside"
-            android:onClick="onMoleClick"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/img_without_mole"
+                android:scaleType="centerInside"
+                android:onClick="onMoleClick"/>
 
             <ImageView
                 android:id="@+id/iv_without_mole_09"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/img_without_mole"
-            android:scaleType="centerInside"
-            android:onClick="onMoleClick"/>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/img_without_mole"
+                android:scaleType="centerInside"
+                android:onClick="onMoleClick"/>
         </LinearLayout>
 
     </LinearLayout>

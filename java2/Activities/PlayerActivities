@@ -9,7 +9,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Model.Leaderboard;
+import Model.Leaderboard; 
 import com.waikato.whackamole.R; 
 
 public class PlayerActivity extends AppCompatActivity {
@@ -51,13 +51,20 @@ public class PlayerActivity extends AppCompatActivity {
 
     private Drawable getSelectedAvatar() {
         int selectedId = rgAvatar.getCheckedRadioButtonId();
-        switch (selectedId) {
-            case R.id.rb_blue: return getResources().getDrawable(R.drawable.avatar_blue);
-            case R.id.rb_orange: return getResources().getDrawable(R.drawable.avatar_orange);
-            case R.id.rb_green: return getResources().getDrawable(R.drawable.avatar_green);
-            case R.id.rb_purple: return getResources().getDrawable(R.drawable.avatar_purple);
-            case R.id.rb_pink: return getResources().getDrawable(R.drawable.avatar_pink);
-            default: return getResources().getDrawable(R.drawable.avatar_grey);
+
+        if (selectedId == R.id.rb_blue) {
+            return getResources().getDrawable(R.drawable.img_blue_mole);
+        } else if (selectedId == R.id.rb_orange) {
+            return getResources().getDrawable(R.drawable.img_orange_mole);
+        } else if (selectedId == R.id.rb_green) {
+            return getResources().getDrawable(R.drawable.img_green_mole);
+        } else if (selectedId == R.id.rb_purple) {
+            return getResources().getDrawable(R.drawable.img_purple_mole);
+        } else if (selectedId == R.id.rb_pink) {
+            return getResources().getDrawable(R.drawable.img_pink_mole);
+        } else {
+            
+            return getResources().getDrawable(R.drawable.img_grey_mole);
         }
     }
 }

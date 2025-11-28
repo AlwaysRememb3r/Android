@@ -1,0 +1,60 @@
+package Activities;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import Model.Leaderboard; 
+import Model.Player;    
+import com.waikato.whackamole.R; 
+
+import java.util.List;
+
+public class LeaderboardActivity extends AppCompatActivity {
+
+    private ImageView[] ivAvatars;
+    private TextView[] tvNames;
+    private TextView[] tvScores;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_leaderboard);
+
+        initViews();
+        updateLeaderboard();
+    }
+
+    private void initViews() {
+        ivAvatars = new ImageView[5];
+        tvNames = new TextView[5];
+        tvScores = new TextView[5];
+
+        for (int i = 0; i < 5; i++) {
+            String avatarId = "iv_leaderboard_avatar" + (i + 1);
+            String nameId = "tv_leaderboard_name" + (i + 1);
+            String scoreId = "tv_leaderboard_score" + (i + 1);
+
+            ivAvatars[i] = findViewById(getResources().getIdentifier(avatarId, "id", getPackageName()));
+            tvNames[i] = findViewById(getResources().getIdentifier(nameId, "id", getPackageName()));
+            tvScores[i] = findViewById(getResources().getIdentifier(scoreId, "id", getPackageName()));
+        }
+    }
+
+    private void updateLeaderboard() {
+        List<Player> topPlayers = Leaderboard.getInstance().getTopPlayers();
+
+        for (int i = 0; i < 5; i++) {
+            if (i < topPlayers.size()) {
+                Player player = topPlayers.get(i);
+                ivAvatars[i].setImageDrawable(player.getPlayerAvatar());
+                tvNames[i].setText(player.getPlayerName());
+                tvScores[i].setText(String.valueOf(player.getPlayerScore()));
+            } else {
+                ivAvatars[i].setImageResource(R.drawable.avatar_grey);
+                tvNames[i].setText("---");
+                tvScores[i].setText("---");
+            }
+        }
+    }
+}

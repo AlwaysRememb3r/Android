@@ -1,0 +1,46 @@
+package Model;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Leaderboard {
+    private static final int MAX_LEADERBOARD_SIZE = 5;
+    private static Leaderboard instance; 
+    private List<Player> topPlayers;
+
+  
+    private Leaderboard() {
+        topPlayers = new ArrayList<>();
+    }
+
+
+    public static synchronized Leaderboard getInstance() {
+        if (instance == null) {
+            instance = new Leaderboard();
+        }
+        return instance;
+    }
+
+    public void addPlayer(String name, int score, Drawable avatar) {
+        topPlayers.add(new Player(name, score, avatar));
+
+        Collections.sort(topPlayers, new Comparator<Player>() {
+            @Override
+            public int compare(Player p1, Player p2) {
+                return Integer.compare(p2.getPlayerScore(), p1.getPlayerScore());
+            }
+        });
+    
+        if (topPlayers.size() > MAX_LEADERBOARD_SIZE) {
+            topPlayers.remove(MAX_LEADERBOARD_SIZE);
+        }
+    }
+
+    public List<Player> getTopPlayers() {
+        return new ArrayList<>(topPlayers);
+    }
+}

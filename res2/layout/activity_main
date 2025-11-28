@@ -4,43 +4,38 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    android:gravity="center">
-
+    android:gravity="center_horizontal"
+    android:padding="20dp">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:src="@drawable/img_wakamole_text"
-        android:scaleType="centerInside"/>
+        android:src="@drawable/img_wackamole_banner"  
+        android:scaleType="centerInside"
+        android:layout_marginBottom="30dp"/>
 
-
-    <ConstraintLayout
+    <Button
+        android:id="@+id/btn_play"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_margin="20dp">
+        android:layout_height="wrap_content"
+        android:text="Play Game"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:onClick="onClickPlay"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="20dp"/>
 
+    <Button
+        android:id="@+id/btn_leaderboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Leaderboard"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:onClick="onClickLeaderboard"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white"/>
 
-        <Button
-            android:id="@+id/btn_play"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/play_game"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:onClick="onClickPlay"
-            android:layout_constraintTop_toParentTop="true"
-            android:layout_constraintBottom_toCenterOfParent="true"/>
-
-
-        <Button
-            android:id="@+id/btn_leaderboard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/leaderboard"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:onClick="onClickLeaderboard"
-            android:layout_constraintTop_toCenterOfParent="true"
-            android:layout_constraintBottom_toParentBottom="true"/>
-    </ConstraintLayout>
 </LinearLayout>

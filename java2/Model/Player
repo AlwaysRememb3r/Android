@@ -1,0 +1,17 @@
+package Model;
+import android.graphics.drawable.Drawable;
+public class Player {
+    private String playerName;
+    private int playerScore;
+    private Drawable playerAvatar;
+
+    public Player(String playerName, int playerScore, Drawable playerAvatar) {
+        this.playerName = playerName;
+        this.playerScore = playerScore;
+        this.playerAvatar = playerAvatar;
+    }
+
+    public String getPlayerName() { return playerName; }
+    public int getPlayerScore() { return playerScore; }
+    public Drawable getPlayerAvatar() { return playerAvatar; }
+}

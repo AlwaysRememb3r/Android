@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
@@ -7,13 +8,15 @@
     android:gravity="center_horizontal"
     android:padding="20dp">
 
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:src="@drawable/img_wackamole_banner"  
-        android:scaleType="centerInside"
-        android:layout_marginBottom="30dp"/>
+        android:src="@drawable/img_wackamole_banner"
+    android:scaleType="centerInside"
+    android:layout_marginBottom="30dp"/>
+
 
     <Button
         android:id="@+id/btn_play"
@@ -26,6 +29,7 @@
         android:backgroundTint="@color/purple_500"
         android:textColor="@android:color/white"
         android:layout_marginBottom="20dp"/>
+
 
     <Button
         android:id="@+id/btn_leaderboard"
